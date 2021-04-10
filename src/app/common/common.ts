@@ -1,6 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http'
 import { throwError } from 'rxjs'
 
+/**
+ * Función para manejar errores de diferentes tipos como HttpErrorResponse y string,
+ * proporcionándolos en un flujo observable.
+ * @param error HttpErrorReponse o string.
+ */
 export function transformError(error: HttpErrorResponse | string) {
   let errorMessage = 'An unknown error has occurred'
   if (typeof error === 'string') {

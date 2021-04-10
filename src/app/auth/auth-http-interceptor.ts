@@ -19,8 +19,7 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     const authRequest = req.clone({ setHeaders: { authorization: `Bearer ${jwt}` } })
     return next.handle(authRequest).pipe(
       tap((authR) => {
-        console.log('Pruebas')
-        console.log(authR)
+        console.log('interceptor ', authR)
       }),
       catchError((err, caught) => {
         if (err.status === 401) {
